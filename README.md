@@ -54,6 +54,14 @@ python import_csv.py --table=my_table --file=path_to_my_file.csv --profile=my-pr
 **Arguments**
 - `table_name:` The name of the DynamoDB table to wipe.
 - `aws_endpoint:` (optional) The endpoint to use for connecting to DynamoDB. If not specified, the default endpoint for the region will be used.
+  
+__update-all-web-acls.py__
+```shell
+# Use specific profile, update all WebACLs:
+python update-all-web-acls.py --profile myprofile --scope CLOUDFRONT
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+
+#Use specific profile, update only one WebACL:
+python update-all-web-acls.py --profile myprofile --scope REGIONAL --region eu-central-1 --webacl-name my-web-acl
+
+```

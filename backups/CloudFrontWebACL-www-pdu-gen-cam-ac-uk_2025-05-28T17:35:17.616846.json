@@ -1,0 +1,256 @@
+{
+  "WebACL": {
+    "Name": "CloudFrontWebACL-www-pdu-gen-cam-ac-uk",
+    "Id": "817f65e8-52ff-4920-92da-b8ffb91f1e25",
+    "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/webacl/CloudFrontWebACL-www-pdu-gen-cam-ac-uk/817f65e8-52ff-4920-92da-b8ffb91f1e25",
+    "DefaultAction": {
+      "Allow": {}
+    },
+    "Description": "",
+    "Rules": [
+      {
+        "Name": "AllowRuleList",
+        "Priority": 0,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Allow-rule-list/2a54850e-60cd-4d47-9cf8-205ad60300bb"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AllowRuleList"
+        }
+      },
+      {
+        "Name": "BlockRuleList",
+        "Priority": 1,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Block-rule-list/dade2d30-fe28-4205-868f-de9c65de9ef7"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "BlockRuleList"
+        }
+      },
+      {
+        "Name": "VPN-list-Block",
+        "Priority": 2,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/VPN-block/0a497e7d-6ce8-4ec2-851d-9136db401412"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "VPN-list-Block"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesCommonRuleSet",
+        "Priority": 3,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesCommonRuleSet",
+            "RuleActionOverrides": [
+              {
+                "Name": "SizeRestrictions_BODY",
+                "ActionToUse": {
+                  "Allow": {}
+                }
+              }
+            ]
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWSManagedRulesCommonRuleSet"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesKnownBadInputsRuleSet",
+        "Priority": 4,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesKnownBadInputsRuleSet"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWSManagedRulesKnownBadInputsRuleSet"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesAmazonIpReputationList",
+        "Priority": 5,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesAmazonIpReputationList"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWSManagedRulesAmazonIpReputationList"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesBotControlRuleSet",
+        "Priority": 6,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesBotControlRuleSet",
+            "ManagedRuleGroupConfigs": [
+              {
+                "AWSManagedRulesBotControlRuleSet": {
+                  "InspectionLevel": "COMMON"
+                }
+              }
+            ]
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWS-AWSManagedRulesBotControlRuleSet"
+        }
+      },
+      {
+        "Name": "AllowStaticFilesRule",
+        "Priority": 7,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Allows-static-files-rule/c52db705-9260-4443-8a28-7c806e592791"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AllowStaticFilesRule"
+        }
+      },
+      {
+        "Name": "BlockBotsRule",
+        "Priority": 8,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Block-bots-rule/65ff9e46-ec26-4067-95dd-ad237bbf3f67"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "BlockBotsRule"
+        }
+      },
+      {
+        "Name": "Google-throttle",
+        "Priority": 10,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Google-throttle/a69399f5-8ea7-4373-9c1c-f2abf81e65fc"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "GoogleRuleGroup"
+        }
+      },
+      {
+        "Name": "Facets-hit-rate-rule",
+        "Priority": 11,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Facets-hit-rate-rule/9d88dd3e-9acb-4110-9eea-c90ce8b98f98"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "Facets-hit-rate-rule"
+        }
+      },
+      {
+        "Name": "CountryRateLimit",
+        "Priority": 12,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Block-country-by-rate/a07e6a3d-b69c-449b-90b8-9c485175fede"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "CountryRateLimit"
+        }
+      }
+    ],
+    "VisibilityConfig": {
+      "SampledRequestsEnabled": true,
+      "CloudWatchMetricsEnabled": true,
+      "MetricName": "CloudFrontWebACLMetric"
+    },
+    "Capacity": 1040,
+    "ManagedByFirewallManager": false,
+    "LabelNamespace": "awswaf:691639156536:webacl:CloudFrontWebACL-www-pdu-gen-cam-ac-uk:"
+  },
+  "LockToken": "4982ef09-88a1-4f3b-b7be-99e7a5003a52",
+  "ResponseMetadata": {
+    "RequestId": "af39b9ee-4d7e-4c48-b1eb-68099a335930",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "af39b9ee-4d7e-4c48-b1eb-68099a335930",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "4917",
+      "date": "Wed, 28 May 2025 15:35:17 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

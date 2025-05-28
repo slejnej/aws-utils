@@ -1,0 +1,206 @@
+{
+  "WebACL": {
+    "Name": "CloudFrontWebACL-accreditation-tephinet-org",
+    "Id": "4fdeb54b-0c4e-46c3-8cf9-3853fe3a0c33",
+    "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/webacl/CloudFrontWebACL-accreditation-tephinet-org/4fdeb54b-0c4e-46c3-8cf9-3853fe3a0c33",
+    "DefaultAction": {
+      "Allow": {}
+    },
+    "Description": "",
+    "Rules": [
+      {
+        "Name": "AllowRuleList",
+        "Priority": 0,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Allow-rule-list/2a54850e-60cd-4d47-9cf8-205ad60300bb"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AllowRuleList"
+        }
+      },
+      {
+        "Name": "BlockRuleList",
+        "Priority": 1,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Block-rule-list/dade2d30-fe28-4205-868f-de9c65de9ef7"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "BlockRuleList"
+        }
+      },
+      {
+        "Name": "VPN-list-Block",
+        "Priority": 2,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/VPN-block/0a497e7d-6ce8-4ec2-851d-9136db401412"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "VPN-list-Block"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesCommonRuleSet",
+        "Priority": 3,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesCommonRuleSet",
+            "RuleActionOverrides": [
+              {
+                "Name": "SizeRestrictions_BODY",
+                "ActionToUse": {
+                  "Allow": {}
+                }
+              }
+            ]
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWSManagedRulesCommonRuleSet"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesKnownBadInputsRuleSet",
+        "Priority": 4,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesKnownBadInputsRuleSet"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWSManagedRulesKnownBadInputsRuleSet"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesAmazonIpReputationList",
+        "Priority": 5,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesAmazonIpReputationList"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWSManagedRulesAmazonIpReputationList"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesBotControlRuleSet",
+        "Priority": 6,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesBotControlRuleSet",
+            "Version": "Version_3.1",
+            "ManagedRuleGroupConfigs": [
+              {
+                "AWSManagedRulesBotControlRuleSet": {
+                  "InspectionLevel": "COMMON"
+                }
+              }
+            ]
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWS-AWSManagedRulesBotControlRuleSet"
+        }
+      },
+      {
+        "Name": "BlockBotsRule",
+        "Priority": 7,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Block-bots-rule/65ff9e46-ec26-4067-95dd-ad237bbf3f67"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "BlockBotsRule"
+        }
+      },
+      {
+        "Name": "Google-throttle",
+        "Priority": 9,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Google-throttle/a69399f5-8ea7-4373-9c1c-f2abf81e65fc"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "GoogleRuleGroup"
+        }
+      }
+    ],
+    "VisibilityConfig": {
+      "SampledRequestsEnabled": true,
+      "CloudWatchMetricsEnabled": true,
+      "MetricName": "CloudFrontWebACLMetric"
+    },
+    "Capacity": 1011,
+    "ManagedByFirewallManager": false,
+    "LabelNamespace": "awswaf:691639156536:webacl:CloudFrontWebACL-accreditation-tephinet-org:"
+  },
+  "LockToken": "ea7e1deb-467d-4d5c-9295-7dd6bdadc8db",
+  "ResponseMetadata": {
+    "RequestId": "89346135-398e-499c-a194-4b934c3e7dcc",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "89346135-398e-499c-a194-4b934c3e7dcc",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "3879",
+      "date": "Wed, 28 May 2025 15:34:57 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

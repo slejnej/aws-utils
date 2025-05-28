@@ -1,0 +1,104 @@
+{
+  "WebACL": {
+    "Name": "CreatedByCloudFront-1de2bb76",
+    "Id": "e5e983df-8fbd-455d-8eaf-80b6c25394e1",
+    "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/webacl/CreatedByCloudFront-1de2bb76/e5e983df-8fbd-455d-8eaf-80b6c25394e1",
+    "DefaultAction": {
+      "Allow": {}
+    },
+    "Description": "",
+    "Rules": [
+      {
+        "Name": "AWS-AWSManagedRulesAmazonIpReputationList",
+        "Priority": 0,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesAmazonIpReputationList"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWS-AWSManagedRulesAmazonIpReputationList"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesCommonRuleSet",
+        "Priority": 1,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesCommonRuleSet"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWS-AWSManagedRulesCommonRuleSet"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesKnownBadInputsRuleSet",
+        "Priority": 2,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesKnownBadInputsRuleSet"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWS-AWSManagedRulesKnownBadInputsRuleSet"
+        }
+      },
+      {
+        "Name": "Facets",
+        "Priority": 3,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Facets-hit-rate-rule/9d88dd3e-9acb-4110-9eea-c90ce8b98f98"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "Facets"
+        }
+      }
+    ],
+    "VisibilityConfig": {
+      "SampledRequestsEnabled": true,
+      "CloudWatchMetricsEnabled": true,
+      "MetricName": "CreatedByCloudFront-1de2bb76"
+    },
+    "Capacity": 930,
+    "ManagedByFirewallManager": false,
+    "LabelNamespace": "awswaf:691639156536:webacl:CreatedByCloudFront-1de2bb76:"
+  },
+  "LockToken": "b099888a-e259-4a32-aab7-6f1aead6fd19",
+  "ResponseMetadata": {
+    "RequestId": "c3ee9732-bd5b-4a60-b0a1-5421472edbd3",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "c3ee9732-bd5b-4a60-b0a1-5421472edbd3",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "1950",
+      "date": "Wed, 28 May 2025 15:35:26 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

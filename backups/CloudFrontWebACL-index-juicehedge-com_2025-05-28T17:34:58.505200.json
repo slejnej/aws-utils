@@ -1,0 +1,253 @@
+{
+  "WebACL": {
+    "Name": "CloudFrontWebACL-index-juicehedge-com",
+    "Id": "50d527cd-c497-4951-ac5f-ef0f57547617",
+    "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/webacl/CloudFrontWebACL-index-juicehedge-com/50d527cd-c497-4951-ac5f-ef0f57547617",
+    "DefaultAction": {
+      "Allow": {}
+    },
+    "Description": "",
+    "Rules": [
+      {
+        "Name": "Juicehedge-API-exclusion",
+        "Priority": 3,
+        "Statement": {
+          "ByteMatchStatement": {
+            "SearchString": "api.juicehedge.com",
+            "FieldToMatch": {
+              "SingleHeader": {
+                "Name": "x-host-header"
+              }
+            },
+            "TextTransformations": [
+              {
+                "Priority": 0,
+                "Type": "NONE"
+              }
+            ],
+            "PositionalConstraint": "EXACTLY"
+          }
+        },
+        "Action": {
+          "Allow": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "Juicehedge-API-exclusion"
+        }
+      },
+      {
+        "Name": "Allow-rule-list",
+        "Priority": 5,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Allow-rule-list/2a54850e-60cd-4d47-9cf8-205ad60300bb"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "Allow-rule-list"
+        }
+      },
+      {
+        "Name": "VPN-list-Block",
+        "Priority": 6,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/VPN-block/0a497e7d-6ce8-4ec2-851d-9136db401412"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "VPN-list-Block"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesCommonRuleSet",
+        "Priority": 7,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesCommonRuleSet"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWSManagedRulesCommonRuleSet"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesKnownBadInputsRuleSet",
+        "Priority": 8,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesKnownBadInputsRuleSet"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWSManagedRulesKnownBadInputsRuleSet"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesAmazonIpReputationList",
+        "Priority": 9,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesAmazonIpReputationList"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWSManagedRulesAmazonIpReputationList"
+        }
+      },
+      {
+        "Name": "AWS-AWSManagedRulesBotControlRuleSet",
+        "Priority": 10,
+        "Statement": {
+          "ManagedRuleGroupStatement": {
+            "VendorName": "AWS",
+            "Name": "AWSManagedRulesBotControlRuleSet"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AWSManagedRulesBotControlRuleSet"
+        }
+      },
+      {
+        "Name": "AllowStaticFilesRule",
+        "Priority": 11,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Allows-static-files-rule/c52db705-9260-4443-8a28-7c806e592791"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "AllowStaticFilesRule"
+        }
+      },
+      {
+        "Name": "BlockBotsRule",
+        "Priority": 12,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Block-bots-rule/65ff9e46-ec26-4067-95dd-ad237bbf3f67"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "BlockBotsRule"
+        }
+      },
+      {
+        "Name": "CountryRateLimit",
+        "Priority": 13,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Block-country-rate-limit/18f799b1-811e-4213-94ec-d039fffd462c"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "CountryRateLimit"
+        }
+      },
+      {
+        "Name": "Google-throttle",
+        "Priority": 14,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Google-throttle/a69399f5-8ea7-4373-9c1c-f2abf81e65fc"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "Google-throttle"
+        }
+      },
+      {
+        "Name": "Facets-hit-rate-rule",
+        "Priority": 15,
+        "Statement": {
+          "RuleGroupReferenceStatement": {
+            "ARN": "arn:aws:wafv2:us-east-1:691639156536:global/rulegroup/Facets-hit-rate-rule/9d88dd3e-9acb-4110-9eea-c90ce8b98f98"
+          }
+        },
+        "OverrideAction": {
+          "None": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "Facets-hit-rate-rule"
+        }
+      }
+    ],
+    "VisibilityConfig": {
+      "SampledRequestsEnabled": true,
+      "CloudWatchMetricsEnabled": true,
+      "MetricName": "CloudFrontWebACLMetric"
+    },
+    "Capacity": 1021,
+    "ManagedByFirewallManager": false,
+    "LabelNamespace": "awswaf:691639156536:webacl:CloudFrontWebACL-index-juicehedge-com:"
+  },
+  "LockToken": "18441bc9-8243-4bba-806a-92b1228eb2f7",
+  "ResponseMetadata": {
+    "RequestId": "7a07ed58-702f-4512-9838-545c96b5dc98",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "7a07ed58-702f-4512-9838-545c96b5dc98",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "4818",
+      "date": "Wed, 28 May 2025 15:34:58 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}
